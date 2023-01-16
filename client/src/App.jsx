@@ -14,6 +14,7 @@ import HomeAdmin from "./pages/admin/home/HomeAdmin";
 import AdressAdmin from "./pages/admin/adress/AdressAdmin";
 import OrderAdmin from "./pages/admin/order/OrderAdmin";
 import Login from "./pages/auth/login/Login";
+import Register from "./pages/auth/register/Register";
 function App() {
   return (
     <BrowserRouter>
@@ -31,7 +32,7 @@ function App() {
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
 
         <Route path="/auth/logowanie" element={<Login />} />
-        <Route path="/auth/rejestracja" element={<OrderAdmin />} />
+        <Route path="/auth/rejestracja" element={<Register />} />
 
         {/* 
 
