@@ -15,10 +15,13 @@ import AdressAdmin from "./pages/admin/adress/AdressAdmin";
 import OrderAdmin from "./pages/admin/order/OrderAdmin";
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
+import Err404 from "./pages/Err404";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" element={<Err404 />} />
         <Route path="/" element={<Home />} />
         <Route path="/krok-1" element={<StepOne />} />
         <Route path="/krok-2" element={<StepTwo />} />
@@ -30,19 +33,13 @@ function App() {
         <Route path="/admin/dashboard" element={<HomeAdmin />} />
         <Route path="/admin/adres-dostawy" element={<AdressAdmin />} />
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
-
         <Route path="/auth/logowanie" element={<Login />} />
-        <Route path="/auth/rejestracja" element={<Register />} />
-
+        <Route path="/auth/rejestracja" element={<Register />} />\
         {/* 
 
-          -login-
-          login form
-          register form
 
           -just page-
           All product (view)
-          error 404
           contact form
 
           -order-
