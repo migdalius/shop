@@ -131,28 +131,11 @@ const Navigation = () => {
           <Search color="#0d9488" className="Nav__searchIcon loop" />
         </SearchSection>
         <UserContainer>
-          <div
-            className="menu-container"
-            onClick={() => {
-              setShopCartOpen(!shopCartOpen);
-            }}
-          >
-            <div className="menu-trigger">
-              <div>
-                <Basket3 color="#fff" size={35} className="shopping-cart" />
-                <div className="shopping-circle">{quantity}</div>
-              </div>
-            </div>
-            <div
-              className={`dropdown-shopping-cart ${
-                shopCartOpen ? "active" : "inactive"
-              }`}
-            >
-              <ul>
-                <DropDownShopCart />
-              </ul>
-            </div>
-          </div>
+          <Link to={"/koszyk"}>
+            <Basket3 color="#fff" size={35} className="shopping-cart" />
+            <div className="shopping-circle">{quantity}</div>
+          </Link>
+
           <div
             className="menu-container"
             onClick={() => {

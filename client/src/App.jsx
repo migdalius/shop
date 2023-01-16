@@ -45,7 +45,6 @@ function App() {
           contact form
 
           -order-
-          shopinng cart 
           empty shopping cart
           Deliver (page with form for delivery)
           Payment (page with payment methods)

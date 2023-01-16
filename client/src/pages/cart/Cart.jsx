@@ -8,6 +8,7 @@ import {
   TrashFill,
   Truck,
 } from "react-bootstrap-icons";
+import { useSelector } from "react-redux";
 
 const MainContainer = styled.div`
   background-color: #f4f6f9;
@@ -90,8 +91,10 @@ const Product = styled.div`
 const ProductImg = styled.img`
   width: 90px;
   height: 120px;
+  object-fit: scale-down;
 `;
 const ProductBody = styled.div`
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,6 +188,7 @@ const ButtonWrapper = styled.div`
   gap: 10px;
 `;
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <MainContainer>
       <Container>
@@ -209,50 +213,28 @@ const Cart = () => {
           <Wrapper>
             <Title>Koszyk</Title>
             <CartContainer>
-              <Product>
-                <ProductImg src="../img/products/product.jpg" />
-                <ProductBody>
-                  <ProductTitle>
-                    Zestaw do uprawy jalapeno super ultra dobry
-                  </ProductTitle>
-                  <ProductDesc>Waga: 400g</ProductDesc>
-                  <CounterWrapper>
-                    <Button>+</Button>
-                    <CounterProduct>1</CounterProduct>
-                    <Button>-</Button>
-                  </CounterWrapper>
-                </ProductBody>
-                <PriceWrapper>
-                  <TrashFill
-                    color="#222"
-                    size={20}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <Price>47,99 zł</Price>
-                </PriceWrapper>
-              </Product>
-              <Product>
-                <ProductImg src="../img/products/product.jpg" />
-                <ProductBody>
-                  <ProductTitle>
-                    Zestaw do uprawy jalapeno super ultra dobry
-                  </ProductTitle>
-                  <ProductDesc>Waga: 400g</ProductDesc>
-                  <CounterWrapper>
-                    <Button>+</Button>
-                    <CounterProduct>1</CounterProduct>
-                    <Button>-</Button>
-                  </CounterWrapper>
-                </ProductBody>
-                <PriceWrapper>
-                  <TrashFill
-                    color="#222"
-                    size={20}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <Price>47,99 zł</Price>
-                </PriceWrapper>
-              </Product>
+              {cart.products.map((product) => (
+                <Product>
+                  <ProductImg src={product.img} />
+                  <ProductBody>
+                    <ProductTitle>{product.title}</ProductTitle>
+                    <ProductDesc>Waga: 400g</ProductDesc>
+                    <CounterWrapper>
+                      <Button>+</Button>
+                      <CounterProduct>{product.quantity}</CounterProduct>
+                      <Button>-</Button>
+                    </CounterWrapper>
+                  </ProductBody>
+                  <PriceWrapper>
+                    <TrashFill
+                      color="#222"
+                      size={20}
+                      style={{ cursor: "pointer" }}
+                    />
+                    <Price>{product.price} zł</Price>
+                  </PriceWrapper>
+                </Product>
+              ))}
               <ProductFooter>
                 <ProductTitle>Dostawa od: 15.00 zł</ProductTitle>
                 <ProductDesc>Do darmowej dostawy: 51.20 zł</ProductDesc>
@@ -264,7 +246,7 @@ const Cart = () => {
             <PriceContainer>
               <PriceWrap>
                 <ProductTitle>Wartość produktów</ProductTitle>
-                <Price>135.59 zł</Price>
+                <Price>{cart.total} zł</Price>
               </PriceWrap>
               <Line />
 
