@@ -2,6 +2,11 @@ import styled, { keyframes } from "styled-components";
 import Footer from "../../components/footer/Footer";
 import Navigation from "../../components/nav/Navigation";
 import { ExclamationCircle } from "react-bootstrap-icons";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { publicRequest } from "../requestMethods";
+import { addProduct } from "../../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const MainContainer = styled.div`
   background-color: #eceff1;
@@ -184,6 +189,46 @@ const Composition = styled.p`
   margin: 15px;
 `;
 const SingleProduct = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get(`/products/find/${id}`);
+        setProduct(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleClick = () => {
+    //update cart
+    dispatch(
+      addProduct({
+        ...product,
+        quantity,
+      })
+    );
+  };
+
+  console.log(product);
+
   return (
     <>
       <Navigation />
@@ -191,8 +236,7 @@ const SingleProduct = () => {
         <Content>
           <Products>
             <ImageContainer>
-              <ImageTitle>BAZYLIA POSPOLITA właściwa</ImageTitle>
-              <ImageSlider src="../img/testproduct/bazylia_cytrynowa.jpg" />
+              <ImageSlider src={product?.img} />
             </ImageContainer>
             <ImageSliderContainer>
               <SingleImageSlider src="../img/testproduct/bazylia_cytrynowa.jpg" />
@@ -202,24 +246,8 @@ const SingleProduct = () => {
             </ImageSliderContainer>
             <Line />
             <ImageContainer>
-              <ImageTitle>Opis Produktu</ImageTitle>
-              <Desc>
-                Roślina jednoroczna o aromatycznych dekoracyjnych liściach.
-                Polecana do sałatek, ciepłych potraw - szczególnie kuchni
-                włoskiej, twarogu. Doskonały dodatek do zapiekanek, potraw
-                mięsnych i ryb. Działa przeciwdepresyjnie i dodaje sił. Wysiew
-                III-IV do pojemników. Wysadzać po 15 V na osłonięte,
-                nasłonecznione miejsce. Nadaje się do całorocznej uprawy w
-                doniczkach na parapecie okiennym. Zastosowanie: Świeże lub
-                suszone liście dodaje się do sałatek, sosów, twarogu,
-                zapiekanek, potraw mięsnych i ryb. Działa przeciwdepresyjnie i
-                dodaje sił. Bazylia jest rośliną przyprawową. Używamy jej liści
-                w postaci świeżej lub po wysuszeniu i zmieleniu. Świeże liście
-                dodajemy m.in. do: sałatek, sosów pomidorowych, do grzybów i dań
-                z makaronem. Suszona bazylia wykorzystywana jest m.in. do
-                pieczenia mięs, ryb, sosów kuchni włoskiej, zup, duszonych
-                warzyw i pizzy.
-              </Desc>
+              <ImageTitle>{product.title}</ImageTitle>
+              <Desc>{product.desc}</Desc>
               <Composition>
                 <strong>Sprawdzone nasiona:</strong> oferowane nasiona są
                 testowane przez firmę TORAF w laboratorium pod względem
@@ -237,11 +265,11 @@ const SingleProduct = () => {
             </ProducerContainer>
             <Line />
             <PriceContainer>
-              <PriceContainerTitle>
-                Divinus Performance DLA OWCZARKA 42% mięsa 20kg
-              </PriceContainerTitle>
-              <Price>2,19 zł</Price>
-              <NetPrice>1,92 zł netto, 8% VAT</NetPrice>
+              <PriceContainerTitle>{product.title}</PriceContainerTitle>
+              <Price>{product.price} zł</Price>
+              <NetPrice>
+                {(product.price / 1.23).toFixed(2)} zł netto, 8% VAT
+              </NetPrice>
             </PriceContainer>
             <Line />
             <DeliveryContainer>
@@ -265,11 +293,19 @@ const SingleProduct = () => {
             <Line />
             <SummaryContainer>
               <QuantityContainer>
-                <QuantityInput placeholder="+" />
-                <QuantityInput />
-                <QuantityInput placeholder="-" />
+                <QuantityInput
+                  placeholder="+"
+                  onClick={() => handleQuantity("inc")}
+                />
+                <QuantityInput value={quantity} />
+                <QuantityInput
+                  placeholder="-"
+                  onClick={() => handleQuantity("dec")}
+                />
               </QuantityContainer>
-              <SummaryButton>DODAJ DO KOSZYKA</SummaryButton>
+              <SummaryButton onClick={handleClick}>
+                DODAJ DO KOSZYKA
+              </SummaryButton>
             </SummaryContainer>
           </Filter>
         </Content>

@@ -82,8 +82,8 @@ const StepTwo = () => {
             <Hr />
             {products.map((item) => {
               return (
-                <Link to={`../lista-produktow/`}>
-                  <SingleProductCart item={item} key={item.id} />
+                <Link to={`../lista-produktow/${item._id}`}>
+                  <SingleProductCart item={item} key={item?._id} />
                 </Link>
               );
             })}

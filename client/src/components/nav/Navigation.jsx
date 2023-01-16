@@ -5,6 +5,7 @@ import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 import DropDown from "../dropdown/DropDown";
 import { useState } from "react";
 import DropDownShopCart from "../dropdownshopcart/DropDownShopCart";
+import { useSelector } from "react-redux";
 
 const MainContent = styled.div`
   display: flex;
@@ -111,7 +112,11 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [shopCartOpen, setShopCartOpen] = useState(false);
   const [query, setQuery] = useState("");
-  console.log(query);
+
+  //redux
+
+  const quantity = useSelector((state) => state.cart.quantity);
+  console.log(quantity);
   return (
     <>
       <MainContent>
@@ -135,7 +140,7 @@ const Navigation = () => {
             <div className="menu-trigger">
               <div>
                 <Basket3 color="#fff" size={35} className="shopping-cart" />
-                <div className="shopping-circle">20</div>
+                <div className="shopping-circle">{quantity}</div>
               </div>
             </div>
             <div

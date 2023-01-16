@@ -16,6 +16,7 @@ import OrderAdmin from "./pages/admin/order/OrderAdmin";
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import Err404 from "./pages/Err404";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
         <Route path="/auth/logowanie" element={<Login />} />
         <Route path="/auth/rejestracja" element={<Register />} />\
+        <Route path="/koszyk" element={<Cart />} />\
         {/* 
 
 
