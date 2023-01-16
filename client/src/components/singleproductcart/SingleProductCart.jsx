@@ -99,6 +99,7 @@ const BuyButton = styled.button`
 
 const SingleProductCart = (item) => {
   const singleItem = item.item;
+
   return (
     <ProductContainer>
       <ImageContainer>

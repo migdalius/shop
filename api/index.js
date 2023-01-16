@@ -5,6 +5,14 @@ const dotenv = require("dotenv");
 mongoose.set("strictQuery", true);
 dotenv.config();
 
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 //
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");

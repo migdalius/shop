@@ -59,14 +59,13 @@ const StepTwo = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/products?category=${category}`
-        );
+        const res = await axios.get(`http://localhost:5000/api/products`);
         setProducts(res.data);
       } catch (err) {}
     };
     getProducts();
   }, []);
+
   return (
     <div className="app">
       <BackgroundContainer>
@@ -82,7 +81,11 @@ const StepTwo = () => {
             <MainCategory />
             <Hr />
             {products.map((item) => {
-              return <SingleProductCart item={item} key={item.id} />;
+              return (
+                <Link to={`../lista-produktow/`}>
+                  <SingleProductCart item={item} key={item.id} />
+                </Link>
+              );
             })}
             <Hr />
             <Pagination />
