@@ -17,6 +17,7 @@ import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 import Err404 from "./pages/Err404";
 import Cart from "./pages/cart/Cart";
+import Delivery from "./pages/delivery/Delivery";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/auth/logowanie" element={<Login />} />
         <Route path="/auth/rejestracja" element={<Register />} />\
         <Route path="/koszyk" element={<Cart />} />\
+        <Route path="/dostawa" element={<Delivery />} />\
         {/* 
 
 

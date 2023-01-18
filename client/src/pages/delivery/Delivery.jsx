@@ -82,7 +82,7 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-const Product = styled.div`
+const formContainer = styled.div`
   display: flex;
   gap: 35px;
   margin: 20px;
@@ -187,7 +187,7 @@ const ButtonWrapper = styled.div`
   padding-top: 20px;
   gap: 10px;
 `;
-const Cart = () => {
+const Delivery = () => {
   const cart = useSelector((state) => state.cart);
   return (
     <MainContainer>
@@ -195,12 +195,12 @@ const Cart = () => {
         <Logo src="../img/products/logo.jpg" />
         <NavigationContainer>
           <NavItem>
-            <Basket color="#0d9488" size={30} />
+            <Basket color="#222" size={30} />
             <CategoryTitle>Koszyk</CategoryTitle>
           </NavItem>
           <Line />
           <NavItem>
-            <Truck color="#222" size={30} />
+            <Truck color="#0d9488" size={30} />
             <CategoryTitle>Dostawa</CategoryTitle>
           </NavItem>
           <Line />
@@ -211,34 +211,9 @@ const Cart = () => {
         </NavigationContainer>
         <BodyContainer>
           <Wrapper>
-            <Title>Koszyk</Title>
+            <Title>Adres dostawy</Title>
             <CartContainer>
-              {cart.products.map((product) => (
-                <Product>
-                  <ProductImg src={product.img} />
-                  <ProductBody>
-                    <ProductTitle>{product.title}</ProductTitle>
-                    <ProductDesc>Waga: 400g</ProductDesc>
-                    <CounterWrapper>
-                      <Button>+</Button>
-                      <CounterProduct>{product.quantity}</CounterProduct>
-                      <Button>-</Button>
-                    </CounterWrapper>
-                  </ProductBody>
-                  <PriceWrapper>
-                    <TrashFill
-                      color="#222"
-                      size={20}
-                      style={{ cursor: "pointer" }}
-                    />
-                    <Price>{product.price} zł</Price>
-                  </PriceWrapper>
-                </Product>
-              ))}
-              <ProductFooter>
-                <ProductTitle>Dostawa od: 15.00 zł</ProductTitle>
-                <ProductDesc>Do darmowej dostawy: 51.20 zł</ProductDesc>
-              </ProductFooter>
+              <formContainer>a</formContainer>
             </CartContainer>
           </Wrapper>
           <Wrapper>
@@ -277,8 +252,8 @@ const Cart = () => {
                 </Wrapper>
               </DeliveryOptions>
               <ButtonWrapper>
-                <NextButton>Przejdz do dostawy</NextButton>
-                <NextButton>Wracam do zakupów</NextButton>
+                <NextButton>Przejdz do płatności</NextButton>
+                <NextButton>Wróć</NextButton>
               </ButtonWrapper>
             </PriceContainer>
           </Wrapper>
@@ -288,4 +263,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Delivery;
