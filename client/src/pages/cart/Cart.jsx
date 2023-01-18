@@ -218,7 +218,7 @@ const Cart = () => {
                   <ProductImg src={product.img} />
                   <ProductBody>
                     <ProductTitle>{product.title}</ProductTitle>
-                    <ProductDesc>Waga: 400g</ProductDesc>
+                    <ProductDesc>Waga: 300g</ProductDesc>
                     <CounterWrapper>
                       <Button>+</Button>
                       <CounterProduct>{product.quantity}</CounterProduct>
