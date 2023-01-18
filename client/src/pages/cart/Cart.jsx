@@ -213,7 +213,7 @@ const Cart = () => {
           <Wrapper>
             <Title>Koszyk</Title>
             <CartContainer>
-              {cart?.products?.map((product) => (
+              {cart.products.map((product) => (
                 <Product>
                   <ProductImg src={product.img} />
                   <ProductBody>
