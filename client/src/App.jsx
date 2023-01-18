@@ -19,6 +19,7 @@ import Err404 from "./pages/Err404";
 import Cart from "./pages/cart/Cart";
 
 function App() {
+  const user = false;
   return (
     <BrowserRouter>
       <Routes>

@@ -139,35 +139,35 @@ const ItemDesc = styled.p`
   color: #222;
 `;
 const Hero = () => {
-  const [baselinker, setBaselinker] = useState([]);
+  // const [baselinker, setBaselinker] = useState([]);
 
-  useEffect(() => {
-    const test = async () => {
-      const url = "https://api.baselinker.com/connector.php";
-      try {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "X-BLToken": "",
-          },
-          muteHttpExceptions: true,
-          payload: {
-            method: "getOrdersByEmail",
-            parameters: JSON.stringify({
-              email: "cs7wpmap6u+26536bc17@allegromail.pl",
-            }),
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    test();
-  }, []);
+  // useEffect(() => {
+  //   const test = async () => {
+  //     const url = "https://api.baselinker.com/connector.php";
+  //     try {
+  //       const response = await fetch(url, {
+  //         method: "POST",
+  //         headers: {
+  //           "X-BLToken": "",
+  //         },
+  //         muteHttpExceptions: true,
+  //         payload: {
+  //           method: "getOrdersByEmail",
+  //           parameters: JSON.stringify({
+  //             email: "cs7wpmap6u+26536bc17@allegromail.pl",
+  //           }),
+  //         },
+  //       })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           console.log(data);
+  //         });
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+  //   test();
+  // }, []);
 
   return (
     <MainContainer>
