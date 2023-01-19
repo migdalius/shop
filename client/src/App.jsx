@@ -19,6 +19,7 @@ import Err404 from "./pages/Err404";
 import Cart from "./pages/cart/Cart";
 import Delivery from "./pages/delivery/Delivery";
 import AllProduct from "./pages/allproduct/AllProduct";
+import CartEmpty from "./pages/cart/CartEmpty";
 
 function App() {
   return (
@@ -41,11 +42,12 @@ function App() {
         <Route path="/koszyk" element={<Cart />} />
         <Route path="/dostawa" element={<Delivery />} />
         <Route path="/lista-produktow/wszystkie" element={<AllProduct />} />
+        <Route path="/koszyk/pusty" element={<CartEmpty />} />
+
         {/* 
 
 
           -just page-
-          All product (view)
           contact form
 
           -order-
