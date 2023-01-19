@@ -18,6 +18,7 @@ import Register from "./pages/auth/register/Register";
 import Err404 from "./pages/Err404";
 import Cart from "./pages/cart/Cart";
 import Delivery from "./pages/delivery/Delivery";
+import AllProduct from "./pages/allproduct/AllProduct";
 
 function App() {
   return (
@@ -36,9 +37,10 @@ function App() {
         <Route path="/admin/adres-dostawy" element={<AdressAdmin />} />
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
         <Route path="/auth/logowanie" element={<Login />} />
-        <Route path="/auth/rejestracja" element={<Register />} />\
-        <Route path="/koszyk" element={<Cart />} />\
-        <Route path="/dostawa" element={<Delivery />} />\
+        <Route path="/auth/rejestracja" element={<Register />} />
+        <Route path="/koszyk" element={<Cart />} />
+        <Route path="/dostawa" element={<Delivery />} />
+        <Route path="/lista-produktow/wszystkie" element={<AllProduct />} />
         {/* 
 
 

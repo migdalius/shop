@@ -131,11 +131,12 @@ const Navigation = () => {
           <Search color="#0d9488" className="Nav__searchIcon loop" />
         </SearchSection>
         <UserContainer>
-          <Link to={"/koszyk"}>
-            <Basket3 color="#fff" size={35} className="shopping-cart" />
-            <div className="shopping-circle">{quantity}</div>
-          </Link>
-
+          <div className="ty">
+            <Link to={"/koszyk"}>
+              <Basket3 color="#fff" size={35} className="shopping-cart" />
+              <div className="shopping-circle">{quantity}</div>
+            </Link>
+          </div>
           <div
             className="menu-container"
             onClick={() => {

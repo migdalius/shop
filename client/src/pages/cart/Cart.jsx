@@ -109,29 +109,6 @@ const ProductDesc = styled.p`
   color: #949494e5;
   font-size: 12px;
 `;
-const CounterWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #f3f3f3;
-  width: 80px;
-  height: 35px;
-  border-radius: 5px;
-`;
-const Button = styled.button`
-  width: 25px;
-  height: 25px;
-  border: none;
-  background-color: #f3f3f3;
-  cursor: pointer;
-`;
-const CounterProduct = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f3f3f3;
-  width: 25px;
-  height: 25px;
-`;
 
 const PriceWrapper = styled.div`
   display: flex;
@@ -186,6 +163,30 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
   padding-top: 20px;
   gap: 10px;
+`;
+
+const CounterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3;
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+`;
+const Button = styled.button`
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: #f3f3f3;
+  cursor: pointer;
+`;
+const CounterProduct = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  width: 25px;
+  height: 25px;
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
