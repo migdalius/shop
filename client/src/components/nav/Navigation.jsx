@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 import DropDown from "../dropdown/DropDown";
 import { useState } from "react";
-import DropDownShopCart from "../dropdownshopcart/DropDownShopCart";
 import { useSelector } from "react-redux";
 
 const MainContent = styled.div`
@@ -116,11 +115,13 @@ const Navigation = () => {
   //redux
 
   const quantity = useSelector((state) => state.cart.quantity);
-  console.log(quantity);
+
   return (
     <>
       <MainContent>
-        Projekt X
+        <Link to={"/"} style={{ color: "white" }}>
+          Projekt X
+        </Link>
         <SearchSection>
           <input
             type="text"

@@ -13,6 +13,11 @@ import NextStep from "../../components/buttons/NextStep";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const BodyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -39,7 +44,7 @@ const CenterContainer = styled.div`
 `;
 
 const BackgroundContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: auto;
   background-color: #eceff1;
 `;
@@ -70,28 +75,33 @@ const StepTwo = () => {
     <div className="app">
       <BackgroundContainer>
         <Navigation />
-        <MainContainer>
-          <LeftContainer>
-            <FilterSideBar />
-          </LeftContainer>
-          <CenterContainer>
-            <NextStep />
-            <TopNav />
-            <Hr />
-            <MainCategory />
-            <Hr />
-            {products.map((item) => {
-              return (
-                <Link to={`../lista-produktow/${item._id}`}>
-                  <SingleProductCart item={item} key={item?._id} />
-                </Link>
-              );
-            })}
-            <Hr />
-            <Pagination />
-          </CenterContainer>
-        </MainContainer>
+        <BodyContainer>
+          <MainContainer>
+            <LeftContainer>
+              <FilterSideBar />
+            </LeftContainer>
+            <CenterContainer>
+              <NextStep />
+
+              <TopNav />
+
+              <Hr />
+              <MainCategory />
+              <Hr />
+              {products.map((item) => {
+                return (
+                  <Link to={`../lista-produktow/${item._id}`}>
+                    <SingleProductCart item={item} key={item?._id} />
+                  </Link>
+                );
+              })}
+              <Hr />
+              <Pagination />
+            </CenterContainer>
+          </MainContainer>
+        </BodyContainer>
       </BackgroundContainer>
+
       <Footer />
     </div>
   );
