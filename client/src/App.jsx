@@ -40,9 +40,10 @@ function App() {
         <Route path="/auth/logowanie" element={<Login />} />
         <Route path="/auth/rejestracja" element={<Register />} />
         <Route path="/koszyk" element={<Cart />} />
-        <Route path="/dostawa" element={<Delivery />} />
         <Route path="/lista-produktow/wszystkie" element={<AllProduct />} />
         <Route path="/koszyk/pusty" element={<CartEmpty />} />
+
+        <Route path="/dostawa" element={<Delivery />} />
 
         {/* 
 
@@ -51,7 +52,6 @@ function App() {
           contact form
 
           -order-
-          empty shopping cart
           Deliver (page with form for delivery)
           Payment (page with payment methods)
         */}

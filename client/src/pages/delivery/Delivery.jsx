@@ -82,7 +82,7 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-const formContainer = styled.div`
+const formContainer = styled.form`
   display: flex;
   gap: 35px;
   margin: 20px;
