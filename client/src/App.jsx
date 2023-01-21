@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/home/Home";
 
 import StepTwo from "./pages/stepTwo/StepTwo";
@@ -20,8 +20,11 @@ import Cart from "./pages/cart/Cart";
 import Delivery from "./pages/delivery/Delivery";
 import AllProduct from "./pages/allproduct/AllProduct";
 import CartEmpty from "./pages/cart/CartEmpty";
+import { useSelector } from "react-redux";
 
 function App() {
+  const user = useSelector((state) => state.user.currentUser);
+  console.log(user);
   return (
     <BrowserRouter>
       <Routes>
@@ -37,7 +40,11 @@ function App() {
         <Route path="/admin/dashboard" element={<HomeAdmin />} />
         <Route path="/admin/adres-dostawy" element={<AdressAdmin />} />
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
-        <Route path="/auth/logowanie" element={<Login />} />
+        {/* <Route path="/auth/logowanie" element={<Login />} /> */}
+        <Route
+          path="/auth/logowanie"
+          element={user ? <Navigate to="/" /> : <Login />}
+        />
         <Route path="/auth/rejestracja" element={<Register />} />
         <Route path="/koszyk" element={<Cart />} />
         <Route path="/lista-produktow/wszystkie" element={<AllProduct />} />
