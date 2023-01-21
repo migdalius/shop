@@ -1,12 +1,13 @@
 import styled, { keyframes } from "styled-components";
 import Footer from "../../components/footer/Footer";
 import Navigation from "../../components/nav/Navigation";
-import { ExclamationCircle } from "react-bootstrap-icons";
+import { Dash, ExclamationCircle, Plus } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 
 const MainContainer = styled.div`
   background-color: #eceff1;
@@ -154,13 +155,23 @@ const CompositionListItem = styled.li`
 const SummaryContainer = styled.div``;
 
 const QuantityContainer = styled.div`
+  display: flex;
   margin: 15px;
 `;
 
-const QuantityInput = styled.input`
+const QuantityInput = styled.button`
   width: 40px;
   height: 35px;
   border: 1px solid #ddd;
+  cursor: pointer;
+`;
+
+const InputQuantity = styled.input`
+  width: 40px;
+  height: 35px;
+  border: 1px solid #ddd;
+
+  text-align: center;
 `;
 
 const SummaryButton = styled.button`
@@ -227,8 +238,6 @@ const SingleProduct = () => {
     );
   };
 
-  console.log(product);
-
   return (
     <>
       <Navigation />
@@ -293,15 +302,17 @@ const SingleProduct = () => {
             <Line />
             <SummaryContainer>
               <QuantityContainer>
-                <QuantityInput
+                {/* <QuantityInput
                   placeholder="+"
                   onClick={() => handleQuantity("inc")}
-                />
-                <QuantityInput value={quantity} />
-                <QuantityInput
-                  placeholder="-"
-                  onClick={() => handleQuantity("dec")}
-                />
+                /> */}
+                <QuantityInput onClick={() => handleQuantity("dec")}>
+                  <Dash color="#222" size={20} />
+                </QuantityInput>
+                <InputQuantity value={quantity} />
+                <QuantityInput onClick={() => handleQuantity("inc")}>
+                  <Plus color="#222" size={20} />
+                </QuantityInput>
               </QuantityContainer>
               <SummaryButton onClick={handleClick}>
                 DODAJ DO KOSZYKA

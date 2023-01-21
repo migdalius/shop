@@ -5,11 +5,28 @@ const TopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 800px;
+  width: 700px;
   height: 120px;
   background-color: #fff;
   border-radius: 10px;
   /* border: 1px solid #ddd; */
+
+  @media (max-width: 805px) {
+    width: 600px;
+  }
+
+  @media (max-width: 610px) {
+    width: 450px;
+  }
+
+  @media (max-width: 455px) {
+    width: 300px;
+    gap: 10px;
+  }
+
+  @media (max-width: 355px) {
+    width: 250px;
+  }
 `;
 const CategoryContainer = styled.div`
   width: 100px;
@@ -22,13 +39,38 @@ const CategoryContainer = styled.div`
 const TopImage = styled.img`
   width: 50px;
   height: 50px;
+  @media (max-width: 610px) {
+    width: 35px;
+    height: 35px;
+  }
+  @media (max-width: 455px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (max-width: 355px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 const Dots = styled.img`
   width: 30px;
+  @media (max-width: 610px) {
+    width: 15px;
+  }
+  @media (max-width: 455px) {
+    display: none;
+  }
 `;
 
-const TopTitle = styled.p``;
+const TopTitle = styled.p`
+  @media (max-width: 455px) {
+    font-size: 12px;
+  }
+  @media (max-width: 355px) {
+    font-size: 10px;
+  }
+`;
 const TopNav = () => {
   return (
     <TopContainer>

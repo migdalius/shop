@@ -5,6 +5,7 @@ import userReducer from "./userRedux";
 export default configureStore({
   reducer: {
     cart: cartReducer,
-    cart: userReducer,
+    user: userReducer,
+
   },
 });

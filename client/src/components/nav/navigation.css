@@ -106,8 +106,11 @@ a {
 /* shopping cart */
 
 .shopping-cart {
-  position: relative;
   cursor: pointer;
+}
+
+.ty {
+  position: relative;
 }
 
 .shopping-circle {
@@ -116,9 +119,11 @@ a {
   border-radius: 50%;
   background-color: orange;
   position: absolute;
-  top: 25px;
-  /* right: 930px; */
-  transform: translate(65%, 5%);
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+
+  /* transform: translate(65%, 5%); */
 
   display: flex;
   justify-content: center;

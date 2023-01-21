@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import styled, { ThemeConsumer } from "styled-components";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
+const BodyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const MainContainer = styled.div`
   width: 1920px;
   height: auto;
@@ -14,6 +16,25 @@ const MainContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: 1680px) {
+    width: 1300px;
+  }
+
+  @media (max-width: 1310px) {
+    width: 1100px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 900px;
+  }
+
+  @media (max-width: 905px) {
+    width: 700px;
+  }
+
+  @media (max-width: 705px) {
+    width: 500px;
+  }
 `;
 
 const BackgroundImage = styled.div`
@@ -24,10 +45,14 @@ const BackgroundImage = styled.div`
   background-image: url("http://localhost:3000/img/bg-hero.png");
   border-radius: 0px 0px 20px 20px;
   position: relative;
-
-  @media (max-width: 1740px) {
-    width: 90vw;
-    height: 80vh;
+  @media (max-width: 905px) {
+    height: 1100px;
+  }
+  @media (max-width: 705px) {
+    height: 720px;
+  }
+  @media (max-width: 505px) {
+    height: 1300px;
   }
 `;
 
@@ -36,6 +61,27 @@ const TitleContainer = styled.h1`
   font-size: 56px;
   margin: 40px;
   width: 600px;
+  @media (max-width: 1680px) {
+    font-size: 46px;
+    margin: 20px;
+  }
+
+  @media (max-width: 1310px) {
+    margin: 10px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 300px;
+  }
+  @media (max-width: 905px) {
+    width: 200px;
+    font-size: 30px;
+  }
+  @media (max-width: 705px) {
+    width: 150px;
+    font-size: 26px;
+    margin: 0;
+  }
 `;
 
 const DescriptionContainer = styled.p`
@@ -43,6 +89,20 @@ const DescriptionContainer = styled.p`
   font-size: 24px;
   margin: 40px;
   color: #fff;
+  @media (max-width: 1680px) {
+    width: 300px;
+  }
+  @media (max-width: 905px) {
+    width: 200px;
+    font-size: 22px;
+    margin: 10px;
+  }
+  @media (max-width: 705px) {
+    width: 150px;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 10px;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -55,12 +115,41 @@ const CardContainer = styled.div`
   border-radius: 10px;
   margin-top: 120px;
   gap: 10px;
+  @media (max-width: 1680px) {
+    grid-template-rows: 200px;
+    margin-top: 80px;
+    width: 60%;
+  }
+  @media (max-width: 1310px) {
+    width: 70%;
+  }
+  @media (max-width: 905px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: auto;
+    gap: 10px;
+  }
+  @media (max-width: 705px) {
+    height: 400px;
+  }
+  @media (max-width: 505px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const DescContainer = styled.div`
   width: 50%;
   height: auto;
   margin: 50px;
+  @media (max-width: 1680px) {
+    width: 40%;
+  }
+  @media (max-width: 1310px) {
+    width: 30%;
+  }
+  @media (max-width: 905px) {
+    width: 20%;
+  }
 `;
 
 const SingleCard = styled.div`
@@ -80,6 +169,23 @@ const SingleCard = styled.div`
   &:hover {
     border: 7px solid #14b8a6;
   }
+
+  @media (max-width: 1680px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media (max-width: 1110px) {
+    width: 110px;
+    height: 110px;
+  }
+  @media (max-width: 905px) {
+    width: 180px;
+    height: 180px;
+  }
+  @media (max-width: 705px) {
+    width: 125px;
+    height: 125px;
+  }
 `;
 
 const HeroBg = styled.div`
@@ -91,10 +197,31 @@ const HeroBg = styled.div`
 const SingleCardTitle = styled.p`
   font-size: 18px;
   font-weight: 700;
+  @media (max-width: 1110px) {
+    font-size: 16px;
+  }
+  @media (max-width: 905px) {
+    font-size: 18px;
+  }
+  @media (max-width: 705px) {
+    font-size: 16px;
+  }
 `;
 
 const SingleCardImage = styled.img`
   height: 130px;
+  @media (max-width: 1680px) {
+    height: 110px;
+  }
+  @media (max-width: 1110px) {
+    height: 80px;
+  }
+  @media (max-width: 905px) {
+    height: 130px;
+  }
+  @media (max-width: 705px) {
+    height: 90px;
+  }
 `;
 
 const ArrowImage = styled.img`
@@ -102,6 +229,30 @@ const ArrowImage = styled.img`
   position: absolute;
   left: 500px;
   top: 190px;
+  @media (max-width: 1680px) {
+    left: 300px;
+    top: 190px;
+  }
+  @media (max-width: 1310px) {
+    left: 100px;
+    top: 190px;
+    height: 250px;
+  }
+  @media (max-width: 1110px) {
+    left: 100px;
+    top: 250px;
+    height: 200px;
+  }
+  @media (max-width: 905px) {
+    left: 40px;
+    top: 250px;
+    height: 180px;
+  }
+  @media (max-width: 705px) {
+    left: 50px;
+    top: 190px;
+    height: 150px;
+  }
 `;
 
 const SecondBaner = styled.div`
@@ -115,6 +266,30 @@ const SecondBaner = styled.div`
   border: 1px solid #ddd;
   display: flex;
   justify-content: center;
+  @media (max-width: 1680px) {
+    width: 1100px;
+    height: 250px;
+  }
+
+  @media (max-width: 1310px) {
+    width: 900px;
+    height: 230px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 700px;
+    height: 230px;
+  }
+  @media (max-width: 705px) {
+    width: 500px;
+    height: 250px;
+  }
+
+  @media (max-width: 505px) {
+    display: grid;
+    width: 350px;
+    height: auto;
+  }
 `;
 
 const SecondBanerItem = styled.div`
@@ -128,126 +303,129 @@ const ItemIcons = styled.img`
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
+  @media (max-width: 1680px) {
+    width: 70px;
+    height: 70px;
+  }
+  @media (max-width: 1110px) {
+    width: 60px;
+    height: 60px;
+  }
+  @media (max-width: 705px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 const ItemTitle = styled.h2`
   font-size: 28px;
   color: #222;
+  @media (max-width: 1680px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1310px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1110px) {
+    font-size: 18px;
+  }
+  @media (max-width: 705px) {
+    font-size: 16px;
+  }
 `;
 const ItemDesc = styled.p`
   margin: 15px;
   font-size: 16px;
   color: #222;
+  @media (max-width: 1110px) {
+    font-size: 14px;
+  }
+  @media (max-width: 705px) {
+    font-size: 12px;
+  }
 `;
 const Hero = () => {
-  // const [baselinker, setBaselinker] = useState([]);
-
-  // useEffect(() => {
-  //   const test = async () => {
-  //     const url = "https://api.baselinker.com/connector.php";
-  //     try {
-  //       const response = await fetch(url, {
-  //         method: "POST",
-  //         headers: {
-  //           "X-BLToken": "",
-  //         },
-  //         muteHttpExceptions: true,
-  //         payload: {
-  //           method: "getOrdersByEmail",
-  //           parameters: JSON.stringify({
-  //             email: "cs7wpmap6u+26536bc17@allegromail.pl",
-  //           }),
-  //         },
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           console.log(data);
-  //         });
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-  //   test();
-  // }, []);
 
   return (
-    <MainContainer>
-      <ImageContainer>
-        <BackgroundImage>
-          <HeroBg>
-            <DescContainer>
-              <TitleContainer>Co chcesz zacząć uprawiać?</TitleContainer>
-              <DescriptionContainer>
-                Wybierz rodzaj rośliny który cię interesuje?
-              </DescriptionContainer>
+    <BodyContainer>
+      <MainContainer>
+        <ImageContainer>
+          <BackgroundImage>
+            <HeroBg>
+              <DescContainer>
+                <TitleContainer>Co chcesz zacząć uprawiać?</TitleContainer>
+                <DescriptionContainer>
+                  Wybierz rodzaj rośliny który cię interesuje?
+                </DescriptionContainer>
 
-              <ArrowImage src="../img/right-arrow.png" />
-            </DescContainer>
-            <CardContainer>
-              <SingleCard>
-                <Link to={"/krok-1"}>
-                  <SingleCardImage src="../img/cat/ziola.png" />
-                  <SingleCardTitle>Zioła</SingleCardTitle>
-                </Link>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/kwiaty.png" />
-                <SingleCardTitle>Kwiaty</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/sukulenty.png" />
-                <SingleCardTitle>Sukulenty</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/chilis.png" />
-                <SingleCardTitle>Papryki chili</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/pomidory.png" />
-                <SingleCardTitle>Warzywa</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/pomidory.png" />
-                <SingleCardTitle>Owoce</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/pomidory.png" />
-                <SingleCardTitle>Kiełki</SingleCardTitle>
-              </SingleCard>
-              <SingleCard>
-                <SingleCardImage src="../img/cat/bonsai.png" />
-                <SingleCardTitle>Bonsai</SingleCardTitle>
-              </SingleCard>
-            </CardContainer>
-          </HeroBg>
-        </BackgroundImage>
-      </ImageContainer>
-      <SecondBaner>
-        <SecondBanerItem>
-          <ItemIcons src="../img/cat/uprawa.png" />
-          <ItemTitle>Uprawa Domowa</ItemTitle>
-          <ItemDesc>
-            Nie każdy rodzaj rośliny nadaje się do uprawy domowej, skorzystaj z
-            generatora, żeby zaoszczędzić czas.
-          </ItemDesc>
-        </SecondBanerItem>
-        <SecondBanerItem>
-          <ItemIcons src="../img/cat/garden.png" />
-          <ItemTitle>Uprawa w Ogrodzie</ItemTitle>
-          <ItemDesc>
-            Wybierz dogodny termin rozpoczęcia uprawy, dzięki generatorowi
-            zaoszczędzisz czas na szukaniu produktów sezonowych.
-          </ItemDesc>
-        </SecondBanerItem>
-        <SecondBanerItem>
-          <ItemIcons src="../img/cat/instruction.png" />
-          <ItemTitle>Instrukcje Uprawy</ItemTitle>
-          <ItemDesc>
-            Do każdego zamówienia otrzymujesz autorskie instrukcje opisujące
-            sadzenie, przesadzanie i pielęgnacje wybranych roślin.
-          </ItemDesc>
-        </SecondBanerItem>
-      </SecondBaner>
-    </MainContainer>
+                <ArrowImage src="../img/right-arrow.png" />
+              </DescContainer>
+              <CardContainer>
+                <SingleCard>
+                  <Link to={"/krok-1"}>
+                    <SingleCardImage src="../img/cat/ziola.png" />
+                    <SingleCardTitle>Zioła</SingleCardTitle>
+                  </Link>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/kwiaty.png" />
+                  <SingleCardTitle>Kwiaty</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/sukulenty.png" />
+                  <SingleCardTitle>Sukulenty</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/chilis.png" />
+                  <SingleCardTitle>Papryki chili</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/pomidory.png" />
+                  <SingleCardTitle>Warzywa</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/pomidory.png" />
+                  <SingleCardTitle>Owoce</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/pomidory.png" />
+                  <SingleCardTitle>Kiełki</SingleCardTitle>
+                </SingleCard>
+                <SingleCard>
+                  <SingleCardImage src="../img/cat/bonsai.png" />
+                  <SingleCardTitle>Bonsai</SingleCardTitle>
+                </SingleCard>
+              </CardContainer>
+            </HeroBg>
+          </BackgroundImage>
+        </ImageContainer>
+        <SecondBaner>
+          <SecondBanerItem>
+            <ItemIcons src="../img/cat/uprawa.png" />
+            <ItemTitle>Uprawa Domowa</ItemTitle>
+            <ItemDesc>
+              Nie każdy rodzaj rośliny nadaje się do uprawy domowej, skorzystaj
+              z generatora, żeby zaoszczędzić czas.
+            </ItemDesc>
+          </SecondBanerItem>
+          <SecondBanerItem>
+            <ItemIcons src="../img/cat/garden.png" />
+            <ItemTitle>Uprawa w Ogrodzie</ItemTitle>
+            <ItemDesc>
+              Wybierz dogodny termin rozpoczęcia uprawy, dzięki generatorowi
+              zaoszczędzisz czas na szukaniu produktów sezonowych.
+            </ItemDesc>
+          </SecondBanerItem>
+          <SecondBanerItem>
+            <ItemIcons src="../img/cat/instruction.png" />
+            <ItemTitle>Instrukcje Uprawy</ItemTitle>
+            <ItemDesc>
+              Do każdego zamówienia otrzymujesz autorskie instrukcje opisujące
+              sadzenie, przesadzanie i pielęgnacje wybranych roślin.
+            </ItemDesc>
+          </SecondBanerItem>
+        </SecondBaner>
+      </MainContainer>
+    </BodyContainer>
   );
 };
 

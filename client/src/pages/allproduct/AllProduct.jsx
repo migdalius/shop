@@ -1,7 +1,5 @@
 import Navigation from "../../components/nav/Navigation";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
 import styled, { keyframes } from "styled-components";
 import TopNav from "../../components/topNav/TopNav";
 import SingleProductCart from "../../components/singleproductcart/SingleProductCart";
@@ -12,11 +10,6 @@ import Pagination from "../../components/pagination/Pagination";
 import NextStep from "../../components/buttons/NextStep";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const BodyContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 
 const MainContainer = styled.div`
   display: flex;
@@ -44,7 +37,7 @@ const CenterContainer = styled.div`
 `;
 
 const BackgroundContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: auto;
   background-color: #eceff1;
 `;
@@ -57,10 +50,9 @@ const Hr = styled.hr`
   padding: 0;
   margin-bottom: 30px;
 `;
-
-const StepTwo = () => {
+const AllProduct = () => {
   const [products, setProducts] = useState([]);
-  const category = "fruits";
+
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -70,41 +62,32 @@ const StepTwo = () => {
     };
     getProducts();
   }, []);
-
   return (
     <div className="app">
       <BackgroundContainer>
         <Navigation />
-        <BodyContainer>
-          <MainContainer>
-            <LeftContainer>
-              <FilterSideBar />
-            </LeftContainer>
-            <CenterContainer>
-              <NextStep />
-
-              <TopNav />
-
-              <Hr />
-              <MainCategory />
-              <Hr />
-              {products.map((item) => {
-                return (
-                  <Link to={`../lista-produktow/${item._id}`}>
-                    <SingleProductCart item={item} key={item?._id} />
-                  </Link>
-                );
-              })}
-              <Hr />
-              <Pagination />
-            </CenterContainer>
-          </MainContainer>
-        </BodyContainer>
+        <MainContainer>
+          <LeftContainer>
+            <FilterSideBar />
+          </LeftContainer>
+          <CenterContainer>
+            <MainCategory />
+            <Hr />
+            {products.map((item) => {
+              return (
+                <Link to={`../lista-produktow/${item._id}`}>
+                  <SingleProductCart item={item} key={item?._id} />
+                </Link>
+              );
+            })}
+            <Hr />
+            <Pagination />
+          </CenterContainer>
+        </MainContainer>
       </BackgroundContainer>
-
       <Footer />
     </div>
   );
 };
 
-export default StepTwo;
+export default AllProduct;

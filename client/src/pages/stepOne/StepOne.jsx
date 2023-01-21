@@ -29,6 +29,19 @@ const MainContainer = styled.div`
   border-radius: 10px;
   border: 1px solid #ddd;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  @media (max-width: 805px) {
+    width: 600px;
+  }
+  @media (max-width: 610px) {
+    width: 450px;
+  }
+  @media (max-width: 455px) {
+    width: 350px;
+  }
+  @media (max-width: 355px) {
+    width: 250px;
+  }
 `;
 
 const FlexContaner = styled.div`
@@ -37,12 +50,28 @@ const FlexContaner = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 610px) {
+    width: 400px;
+  }
+  @media (max-width: 455px) {
+    width: 300px;
+  }
+  @media (max-width: 355px) {
+    width: 220px;
+  }
 `;
 
 const MainTitle = styled.h3`
   margin-top: 10px;
   font-weight: 700;
   font-size: 28px;
+  @media (max-width: 455px) {
+    font-size: 22px;
+  }
+  @media (max-width: 355px) {
+    font-size: 20px;
+  }
 `;
 
 const WhereButton = styled.button`
@@ -54,6 +83,12 @@ const WhereButton = styled.button`
   cursor: pointer;
   color: #fff;
   font-size: 16px;
+  @media (max-width: 610px) {
+    padding: 15px 20px;
+  }
+  @media (max-width: 355px) {
+    padding: 10px 5px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -85,6 +120,10 @@ const ButtonNext = styled.button`
   &:hover {
     background-color: #222;
     transition: 0.3s;
+  }
+
+  @media (max-width: 355px) {
+    width: 200px;
   }
 `;
 const StepOne = () => {
