@@ -344,6 +344,7 @@ const ItemDesc = styled.p`
   }
 `;
 const Hero = () => {
+
   return (
     <BodyContainer>
       <MainContainer>

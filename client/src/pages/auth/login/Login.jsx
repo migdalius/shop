@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import Footer from "../../../components/footer/Footer";
 import Navigation from "../../../components/nav/Navigation";
+
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { login } from "../../../redux/apiCalls";
 
 const MainContainer = styled.div`
@@ -98,6 +102,7 @@ const LoginButton = styled.button`
   font-size: 16px;
   cursor: pointer;
 
+
   &:disabled {
     background-color: grey;
     cursor: not-allowed;
@@ -106,12 +111,15 @@ const LoginButton = styled.button`
 
 const Error = styled.span`
   color: red;
-`;
+
+
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
@@ -141,18 +149,24 @@ const Login = () => {
                   <RightLoginTitle>Logowanie użytkownika</RightLoginTitle>
                   <LoginInput
                     type="text"
+
                     placeholder="UserName"
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <LoginInput
                     type="password"
+
                     placeholder="Password"
+
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <LoginButton onClick={handleClick} disabled={isFetching}>
                     Zaloguj się
                   </LoginButton>
+
                   {error && <Error>Błędna nazwa użytkownika lub email.</Error>}
+
                 </RightTextContainer>
               </ContentContainer>
             </RightContainer>

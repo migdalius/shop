@@ -125,7 +125,7 @@ const Navigation = () => {
         <SearchSection>
           <input
             type="text"
-            placeholder="Szukaj...."
+            placeholder="Szukaj..."
             onChange={(e) => setQuery(e.target.value)}
             className="Nav__searchBar"
           />

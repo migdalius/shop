@@ -6,5 +6,6 @@ export default configureStore({
   reducer: {
     cart: cartReducer,
     user: userReducer,
+
   },
 });
