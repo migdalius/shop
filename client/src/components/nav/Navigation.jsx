@@ -163,16 +163,16 @@ const Navigation = () => {
       <CategoryContainer>
         <CategoryList>
           <CategoryItemList>
-            <Link>Domowa Uprawa</Link>
+            <Link>Wszystkie Produkty</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Uprawa w Ogrodzie</Link>
+            <Link>Zestawy do uprawy</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Uprawa Hydroponiczna</Link>
+            <Link>Dropshipping</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Uprawa w Szklarni</Link>
+            <Link>Kontakt</Link>
           </CategoryItemList>
         </CategoryList>
       </CategoryContainer>

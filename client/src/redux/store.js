@@ -13,14 +13,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-<<<<<<< Updated upstream
-export default configureStore({
-  reducer: {
-    cart: cartReducer,
-    user: userReducer,
-
-  },
-=======
 const persistConfig = {
   key: "root",
   version: 1,
@@ -39,7 +31,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
->>>>>>> Stashed changes
 });
 
 export let persistor = persistStore(store);

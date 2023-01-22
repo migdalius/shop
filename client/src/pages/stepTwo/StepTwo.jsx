@@ -60,11 +60,14 @@ const Hr = styled.hr`
 
 const StepTwo = () => {
   const [products, setProducts] = useState([]);
-  const category = "fruits";
+  const category = "all";
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/products`);
+        const res = await axios.get(
+          // "http://localhost:5000/api/products?category=all"
+          "http://localhost:5000/api/products"
+        );
         setProducts(res.data);
       } catch (err) {}
     };
