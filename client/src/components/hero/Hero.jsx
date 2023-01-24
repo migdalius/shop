@@ -344,7 +344,6 @@ const ItemDesc = styled.p`
   }
 `;
 const Hero = () => {
-
   return (
     <BodyContainer>
       <MainContainer>
@@ -361,38 +360,52 @@ const Hero = () => {
               </DescContainer>
               <CardContainer>
                 <SingleCard>
-                  <Link to={"/krok-1"}>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
                     <SingleCardImage src="../img/cat/ziola.png" />
                     <SingleCardTitle>Zioła</SingleCardTitle>
                   </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/kwiaty.png" />
-                  <SingleCardTitle>Kwiaty</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/kwiaty.png" />
+                    <SingleCardTitle>Kwiaty</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/sukulenty.png" />
-                  <SingleCardTitle>Sukulenty</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/sukulenty.png" />
+                    <SingleCardTitle>Sukulenty</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/chilis.png" />
-                  <SingleCardTitle>Papryki chili</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/chilis.png" />
+                    <SingleCardTitle>Papryki chili</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/pomidory.png" />
-                  <SingleCardTitle>Warzywa</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/pomidory.png" />
+                    <SingleCardTitle>Warzywa</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/pomidory.png" />
-                  <SingleCardTitle>Owoce</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/owoce.png" />
+                    <SingleCardTitle>Owoce</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/pomidory.png" />
-                  <SingleCardTitle>Kiełki</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/kielki.png" />
+                    <SingleCardTitle>Kiełki</SingleCardTitle>
+                  </Link>
                 </SingleCard>
                 <SingleCard>
-                  <SingleCardImage src="../img/cat/bonsai.png" />
-                  <SingleCardTitle>Bonsai</SingleCardTitle>
+                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
+                    <SingleCardImage src="../img/cat/bonsai.png" />
+                    <SingleCardTitle>Bonsai</SingleCardTitle>
+                  </Link>
                 </SingleCard>
               </CardContainer>
             </HeroBg>

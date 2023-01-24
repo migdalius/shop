@@ -139,7 +139,7 @@ const StepOne = () => {
       when: e.target.value,
     });
   };
-  console.log(values);
+
   return (
     <div className="app">
       <Navigation />

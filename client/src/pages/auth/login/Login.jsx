@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import Footer from "../../../components/footer/Footer";
 import Navigation from "../../../components/nav/Navigation";
@@ -102,7 +100,6 @@ const LoginButton = styled.button`
   font-size: 16px;
   cursor: pointer;
 
-
   &:disabled {
     background-color: grey;
     cursor: not-allowed;
@@ -111,8 +108,7 @@ const LoginButton = styled.button`
 
 const Error = styled.span`
   color: red;
-
-
+`;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -149,16 +145,12 @@ const Login = () => {
                   <RightLoginTitle>Logowanie użytkownika</RightLoginTitle>
                   <LoginInput
                     type="text"
-
                     placeholder="UserName"
-
                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <LoginInput
                     type="password"
-
                     placeholder="Password"
-
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <LoginButton onClick={handleClick} disabled={isFetching}>
@@ -166,7 +158,6 @@ const Login = () => {
                   </LoginButton>
 
                   {error && <Error>Błędna nazwa użytkownika lub email.</Error>}
-
                 </RightTextContainer>
               </ContentContainer>
             </RightContainer>
