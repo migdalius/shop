@@ -172,6 +172,9 @@ const Navigation = () => {
             <Link>Dropshipping</Link>
           </CategoryItemList>
           <CategoryItemList>
+            <Link>Dla Firm</Link>
+          </CategoryItemList>
+          <CategoryItemList>
             <Link>Kontakt</Link>
           </CategoryItemList>
         </CategoryList>
