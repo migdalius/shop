@@ -149,13 +149,25 @@ const StepOne = () => {
           <FlexContaner>
             <MainTitle>Gdzie będziesz uprawiał?</MainTitle>
             <ButtonContainer>
-              <WhereButton value="house" onClick={handleChangeButton}>
+              <WhereButton
+                className="button-focus"
+                value="house"
+                onClick={handleChangeButton}
+              >
                 Dom
               </WhereButton>
-              <WhereButton value="garden" onClick={handleChangeButton}>
+              <WhereButton
+                className="button-focus"
+                value="garden"
+                onClick={handleChangeButton}
+              >
                 Ogród
               </WhereButton>
-              <WhereButton value="greenhouse" onClick={handleChangeButton}>
+              <WhereButton
+                className="button-focus"
+                value="greenhouse"
+                onClick={handleChangeButton}
+              >
                 Szklarnia
               </WhereButton>
             </ButtonContainer>
@@ -163,22 +175,46 @@ const StepOne = () => {
           <FlexContaner>
             <MainTitle>Kiedy oczekujesz efektu?</MainTitle>
             <GridContainer>
-              <WhereButton value="10" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value="10"
+                onClick={whereHandler}
+              >
                 10 dni
               </WhereButton>
-              <WhereButton value="30" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value="30"
+                onClick={whereHandler}
+              >
                 1 miesiąc
               </WhereButton>
-              <WhereButton value="180" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value="180"
+                onClick={whereHandler}
+              >
                 3-6 miesięcy
               </WhereButton>
-              <WhereButton value="540" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value="540"
+                onClick={whereHandler}
+              >
                 6-18 miesięcy
               </WhereButton>
-              <WhereButton value="541" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value="541"
+                onClick={whereHandler}
+              >
                 18 miesięcy +
               </WhereButton>
-              <WhereButton value="" onClick={whereHandler}>
+              <WhereButton
+                className="button-focus"
+                value=""
+                onClick={whereHandler}
+              >
                 Bez znaczenia
               </WhereButton>
             </GridContainer>
