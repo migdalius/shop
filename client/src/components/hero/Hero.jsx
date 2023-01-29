@@ -228,7 +228,7 @@ const ArrowImage = styled.img`
   height: 300px;
   position: absolute;
   left: 500px;
-  top: 190px;
+  top: 250px;
   @media (max-width: 1680px) {
     left: 300px;
     top: 190px;
@@ -351,9 +351,11 @@ const Hero = () => {
           <BackgroundImage>
             <HeroBg>
               <DescContainer>
-                <TitleContainer>Co chcesz zacząć uprawiać?</TitleContainer>
+                <TitleContainer>Jakie nasiona cię interesują?</TitleContainer>
                 <DescriptionContainer>
-                  Wybierz rodzaj rośliny który cię interesuje?
+                  Prowadzimy sprzedaż tylko i wyłącznie w modelu dropshipping,
+                  klientów detalicznych zapraszamy do zakupów u naszych
+                  partnerów.
                 </DescriptionContainer>
 
                 <ArrowImage src="../img/right-arrow.png" />
