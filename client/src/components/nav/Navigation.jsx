@@ -166,13 +166,13 @@ const Navigation = () => {
             <Link>Wszystkie Produkty</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Zestawy do uprawy</Link>
-          </CategoryItemList>
-          <CategoryItemList>
             <Link>Dropshipping</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Dla Firm</Link>
+            <Link>Współpraca</Link>
+          </CategoryItemList>
+          <CategoryItemList>
+            <Link>Integracje</Link>
           </CategoryItemList>
           <CategoryItemList>
             <Link>Kontakt</Link>
