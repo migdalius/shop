@@ -163,7 +163,7 @@ const Navigation = () => {
       <CategoryContainer>
         <CategoryList>
           <CategoryItemList>
-            <Link>Wszystkie Produkty</Link>
+            <Link to={"/wszystkie-produkty"}>Wszystkie Produkty</Link>
           </CategoryItemList>
           <CategoryItemList>
             <Link>Dropshipping</Link>
