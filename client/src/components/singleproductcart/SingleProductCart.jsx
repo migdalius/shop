@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProductContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 90%;
   height: 200px;
   background-color: #fff;
   border-radius: 10px;
@@ -62,6 +62,7 @@ const AddProductContainer = styled.div`
   margin-bottom: 10px;
   display: flex;
   gap: 10px;
+  height: 40%;
 `;
 const PositivelyButton = styled.button`
   padding: 5px 10px;
@@ -95,6 +96,10 @@ const BuyButton = styled.button`
   border: none;
   color: #fff;
   cursor: pointer;
+  &:hover {
+    background-color: #222;
+    transition: 0.3s;
+  }
 `;
 
 const SingleProductCart = (item) => {
@@ -115,14 +120,7 @@ const SingleProductCart = (item) => {
       </DescContainer>
 
       <BuyContainer>
-        <ProducerContainer>
-          <ProducerLogo src="../img/products/logo.jpg" />
-        </ProducerContainer>
-        <AddProductContainer>
-          <PositivelyButton>+</PositivelyButton>
-          <CounterInput />
-          <NegativeButton>-</NegativeButton>
-        </AddProductContainer>
+        <AddProductContainer></AddProductContainer>
         <BuyButton>Dodaj do koszyka</BuyButton>
       </BuyContainer>
     </ProductContainer>

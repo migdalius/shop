@@ -21,9 +21,9 @@ import Delivery from "./pages/delivery/Delivery";
 import AllProduct from "./pages/allproduct/AllProduct";
 import CartEmpty from "./pages/cart/CartEmpty";
 import { useSelector } from "react-redux";
+import ProductList from "./pages/productList/ProductList";
 
 function App() {
-
   const user = useSelector((state) => state.user.currentUser);
   console.log(user);
 
@@ -42,7 +42,7 @@ function App() {
         <Route path="/admin/dashboard" element={<HomeAdmin />} />
         <Route path="/admin/adres-dostawy" element={<AdressAdmin />} />
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
-        {/* <Route path="/auth/logowanie" element={<Login />} /> */}
+        <Route path="/wszystkie-produkty" element={<ProductList />} />
         <Route
           path="/auth/logowanie"
           element={user ? <Navigate to="/" /> : <Login />}

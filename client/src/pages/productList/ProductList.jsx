@@ -58,7 +58,7 @@ const Hr = styled.hr`
   margin-bottom: 30px;
 `;
 
-const StepTwo = () => {
+const ProductList = () => {
   const [products, setProducts] = useState([]);
   const category = "all";
   useEffect(() => {
@@ -85,11 +85,6 @@ const StepTwo = () => {
               <FilterSideBar />
             </LeftContainer>
             <CenterContainer>
-              <NextStep />
-
-              <TopNav />
-
-              <Hr />
               <MainCategory />
               <Hr />
               {products.map((item) => {
@@ -111,4 +106,4 @@ const StepTwo = () => {
   );
 };
 
-export default StepTwo;
+export default ProductList;
