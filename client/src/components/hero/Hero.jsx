@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled, { ThemeConsumer } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const BodyContainer = styled.div`
   display: flex;
@@ -344,6 +345,14 @@ const ItemDesc = styled.p`
   }
 `;
 const Hero = () => {
+  const navigate = useNavigate();
+  const categoryHandler = (e) => {
+    const clicked = e.target;
+
+    const id = clicked.closest(".h").id;
+
+    navigate("/produkty", { state: id });
+  };
   return (
     <BodyContainer>
       <MainContainer>
@@ -361,53 +370,53 @@ const Hero = () => {
                 <ArrowImage src="../img/right-arrow.png" />
               </DescContainer>
               <CardContainer>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/ziola.png" />
-                    <SingleCardTitle>Zioła</SingleCardTitle>
-                  </Link>
+                <SingleCard id="herbs" className="h" onClick={categoryHandler}>
+                  <SingleCardImage src="../img/cat/ziola.png" />
+                  <SingleCardTitle>Zioła</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/kwiaty.png" />
-                    <SingleCardTitle>Kwiaty</SingleCardTitle>
-                  </Link>
+                <SingleCard
+                  id="flowers"
+                  className="h"
+                  onClick={categoryHandler}
+                >
+                  <SingleCardImage src="../img/cat/kwiaty.png" />
+                  <SingleCardTitle>Kwiaty</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/sukulenty.png" />
-                    <SingleCardTitle>Sukulenty</SingleCardTitle>
-                  </Link>
+                <SingleCard
+                  id="succulents"
+                  className="h"
+                  onClick={categoryHandler}
+                >
+                  <SingleCardImage src="../img/cat/sukulenty.png" />
+                  <SingleCardTitle>Sukulenty</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/chilis.png" />
-                    <SingleCardTitle>Papryki chili</SingleCardTitle>
-                  </Link>
+                <SingleCard id="chilis" className="h" onClick={categoryHandler}>
+                  <SingleCardImage src="../img/cat/chilis.png" />
+                  <SingleCardTitle>Papryki chili</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/pomidory.png" />
-                    <SingleCardTitle>Warzywa</SingleCardTitle>
-                  </Link>
+                <SingleCard
+                  id="vegetables"
+                  className="h"
+                  onClick={categoryHandler}
+                >
+                  <SingleCardImage src="../img/cat/pomidory.png" />
+                  <SingleCardTitle>Warzywa</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/owoce.png" />
-                    <SingleCardTitle>Owoce</SingleCardTitle>
-                  </Link>
+                <SingleCard id="fruit" className="h" onClick={categoryHandler}>
+                  <SingleCardImage src="../img/cat/owoce.png" />
+                  <SingleCardTitle>Owoce</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/kielki.png" />
-                    <SingleCardTitle>Kiełki</SingleCardTitle>
-                  </Link>
+                <SingleCard
+                  id="sprouts"
+                  className="h"
+                  onClick={categoryHandler}
+                >
+                  <SingleCardImage src="../img/cat/kielki.png" />
+                  <SingleCardTitle>Kiełki</SingleCardTitle>
                 </SingleCard>
-                <SingleCard>
-                  <Link to={"/krok-1"} style={{ "text-align": "center" }}>
-                    <SingleCardImage src="../img/cat/bonsai.png" />
-                    <SingleCardTitle>Bonsai</SingleCardTitle>
-                  </Link>
+                <SingleCard id="bonsai" className="h" onClick={categoryHandler}>
+                  <SingleCardImage src="../img/cat/bonsai.png" />
+                  <SingleCardTitle>Bonsai</SingleCardTitle>
                 </SingleCard>
               </CardContainer>
             </HeroBg>

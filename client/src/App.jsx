@@ -25,7 +25,6 @@ import ProductList from "./pages/productList/ProductList";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
 
   return (
     <BrowserRouter>
@@ -42,7 +41,7 @@ function App() {
         <Route path="/admin/dashboard" element={<HomeAdmin />} />
         <Route path="/admin/adres-dostawy" element={<AdressAdmin />} />
         <Route path="/admin/moje-zamowienia" element={<OrderAdmin />} />
-        <Route path="/wszystkie-produkty" element={<ProductList />} />
+        <Route path="/produkty" element={<ProductList />} />
         <Route
           path="/auth/logowanie"
           element={user ? <Navigate to="/" /> : <Login />}

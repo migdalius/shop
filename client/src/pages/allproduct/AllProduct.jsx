@@ -1,5 +1,5 @@
 import Navigation from "../../components/nav/Navigation";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import TopNav from "../../components/topNav/TopNav";
 import SingleProductCart from "../../components/singleproductcart/SingleProductCart";
@@ -51,6 +51,8 @@ const Hr = styled.hr`
   margin-bottom: 30px;
 `;
 const AllProduct = () => {
+  const location = useLocation();
+  console.log(location.state);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
