@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 import DropDown from "../dropdown/DropDown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const MainContent = styled.div`
   display: flex;
@@ -107,11 +108,34 @@ const CategoryItemList = styled.li`
   font-size: 16px;
 `;
 
+const Logo = styled.img`
+  width: 180px;
+`;
+
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [shopCartOpen, setShopCartOpen] = useState(false);
+
+  //search
   const [query, setQuery] = useState("");
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/products?q=${query}`
+        );
+        setData(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, []);
+
+  console.log(data);
+
+  const searchValue = () => {};
   //redux
 
   const quantity = useSelector((state) => state.cart.quantity);
@@ -120,7 +144,7 @@ const Navigation = () => {
     <>
       <MainContent>
         <Link to={"/"} style={{ color: "white" }}>
-          Projekt X
+          <Logo src="../img/logo.png" />
         </Link>
         <SearchSection>
           <input
@@ -129,7 +153,11 @@ const Navigation = () => {
             onChange={(e) => setQuery(e.target.value)}
             className="Nav__searchBar"
           />
-          <Search color="#0d9488" className="Nav__searchIcon loop" />
+          <Search
+            color="#0d9488"
+            className="Nav__searchIcon loop"
+            onClick={searchValue}
+          />
         </SearchSection>
         <UserContainer>
           <div className="ty">

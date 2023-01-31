@@ -60,7 +60,8 @@ const Hr = styled.hr`
 
 const ProductList = () => {
   const location = useLocation();
-  console.log(location.state);
+  const category = location.state;
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

@@ -21,24 +21,24 @@ const FilterSideBar = () => {
   return (
     <FilterContainer>
       <TypeOfCare>
-        <TypeOfCareTitle>Rodzaj uprawy</TypeOfCareTitle>
+        <TypeOfCareTitle>Kiełkowanie</TypeOfCareTitle>
         <TypeOfCareBody>
           <label class="form-control">
             <input type="radio" name="homeGrow" />
-            Uprawa domowa
+            od 2 do 10 dni
           </label>
 
           <label class="form-control">
             <input type="radio" name="gardenGrow" />
-            Uprawa w ogrodzie
+            od 11 do 30 dni
           </label>
           <label class="form-control">
             <input type="radio" name="hydroGrow" />
-            Uprawa Hydroponiczna
+            od 31 do 50 dni
           </label>
           <label class="form-control">
             <input type="radio" name="glassGrow" />
-            Uprawa w Szklarni
+            powyżej 50 dni
           </label>
         </TypeOfCareBody>
         <TypeOfCareTitle>Rodzaj Doniczki</TypeOfCareTitle>
