@@ -133,13 +133,12 @@ const Navigation = () => {
     getProducts();
   }, []);
 
-  console.log(data);
-
   const searchValue = () => {};
   //redux
 
   const quantity = useSelector((state) => state.cart.quantity);
-
+  // const acitve = useSelector((state) => state.user.currentUser);
+  // console.log(acitve.accessToken);
   return (
     <>
       <MainContent>
@@ -177,9 +176,12 @@ const Navigation = () => {
                 <div>
                   <PersonCircle color="#fff" size={35} />
                 </div>
-                <p class="account">Moje konto</p>
+                <div className="ty1">
+                  <p class="account">Moje konto</p>
+                </div>
               </UserDetail>
             </div>
+
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
                 <DropDown />
@@ -189,23 +191,23 @@ const Navigation = () => {
         </UserContainer>
       </MainContent>
       <CategoryContainer>
+        {/* {acitve.accessToken && ( */}
         <CategoryList>
           <CategoryItemList>
             <Link to={"/produkty"}>Wszystkie Produkty</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Dropshipping</Link>
+            <a target="_blank" href="https://www.szybkauprawa.pl/instrukcje">
+              Instrukcje uprawy
+            </a>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Współpraca</Link>
-          </CategoryItemList>
-          <CategoryItemList>
-            <Link>Integracje</Link>
-          </CategoryItemList>
-          <CategoryItemList>
-            <Link>Kontakt</Link>
+            <a target="_blank" href="https://www.szybkauprawa.pl/kontakt">
+              Kontakt
+            </a>
           </CategoryItemList>
         </CategoryList>
+        {/* )} */}
       </CategoryContainer>
     </>
   );
