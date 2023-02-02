@@ -25,7 +25,7 @@ const Container = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 120px;
+  width: 160px;
 `;
 const NavigationContainer = styled.div`
   display: flex;
@@ -190,10 +190,11 @@ const CounterProduct = styled.div`
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+
   return (
     <MainContainer>
       <Container>
-        <Logo src="../img/products/logo.jpg" />
+        <Logo src="../img/color_logo.png" />
         <NavigationContainer>
           <NavItem>
             <Basket color="#0d9488" size={30} />

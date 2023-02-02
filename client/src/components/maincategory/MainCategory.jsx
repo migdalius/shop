@@ -28,7 +28,7 @@ const MainCategory = () => {
     <CategoryDescContainer>
       <CategoryImg src="../img/testproduct/bazylia_cytrynowa.jpg" />
       <CategoryDescWrapper>
-        <CategoryDescTitle>Nasiona ziół</CategoryDescTitle>
+        <CategoryDescTitle>Tytuł Kategorii</CategoryDescTitle>
         <CategoryDesc>
           s simply dummy text of the printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy text ever since the

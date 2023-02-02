@@ -1,5 +1,5 @@
 import Navigation from "../../components/nav/Navigation";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import styled, { keyframes } from "styled-components";
@@ -59,17 +59,20 @@ const Hr = styled.hr`
 `;
 
 const ProductList = () => {
+  const location = useLocation();
+  const category = location.state;
+
   const [products, setProducts] = useState([]);
-  const category = "all";
+
   useEffect(() => {
     const getProducts = async () => {
       try {
         const res = await axios.get(
-          // "http://localhost:5000/api/products?category=all"
-          "http://localhost:5000/api/products"
+          location.state != null
+            ? `http://localhost:5000/api/products?category=${location.state}`
+            : "http://localhost:5000/api/products?category=all"
         );
         setProducts(res.data);
-        console.log(res.data);
       } catch (err) {}
     };
     getProducts();

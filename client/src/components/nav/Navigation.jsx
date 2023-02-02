@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 import DropDown from "../dropdown/DropDown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const MainContent = styled.div`
   display: flex;
@@ -107,20 +108,42 @@ const CategoryItemList = styled.li`
   font-size: 16px;
 `;
 
+const Logo = styled.img`
+  width: 180px;
+`;
+
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [shopCartOpen, setShopCartOpen] = useState(false);
+
+  //search
   const [query, setQuery] = useState("");
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/products?q=${query}`
+        );
+        setData(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, []);
+
+  const searchValue = () => {};
   //redux
 
   const quantity = useSelector((state) => state.cart.quantity);
-
+  // const acitve = useSelector((state) => state.user.currentUser);
+  // console.log(acitve.accessToken);
   return (
     <>
       <MainContent>
         <Link to={"/"} style={{ color: "white" }}>
-          Projekt X
+          <Logo src="../img/logo.png" />
         </Link>
         <SearchSection>
           <input
@@ -129,7 +152,11 @@ const Navigation = () => {
             onChange={(e) => setQuery(e.target.value)}
             className="Nav__searchBar"
           />
-          <Search color="#0d9488" className="Nav__searchIcon loop" />
+          <Search
+            color="#0d9488"
+            className="Nav__searchIcon loop"
+            onClick={searchValue}
+          />
         </SearchSection>
         <UserContainer>
           <div className="ty">
@@ -149,9 +176,12 @@ const Navigation = () => {
                 <div>
                   <PersonCircle color="#fff" size={35} />
                 </div>
-                <p class="account">Moje konto</p>
+                <div className="ty1">
+                  <p class="account">Moje konto</p>
+                </div>
               </UserDetail>
             </div>
+
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
                 <DropDown />
@@ -161,23 +191,23 @@ const Navigation = () => {
         </UserContainer>
       </MainContent>
       <CategoryContainer>
+        {/* {acitve.accessToken && ( */}
         <CategoryList>
           <CategoryItemList>
-            <Link to={"/wszystkie-produkty"}>Wszystkie Produkty</Link>
+            <Link to={"/produkty"}>Wszystkie Produkty</Link>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Dropshipping</Link>
+            <a target="_blank" href="https://www.szybkauprawa.pl/instrukcje">
+              Instrukcje uprawy
+            </a>
           </CategoryItemList>
           <CategoryItemList>
-            <Link>Współpraca</Link>
-          </CategoryItemList>
-          <CategoryItemList>
-            <Link>Integracje</Link>
-          </CategoryItemList>
-          <CategoryItemList>
-            <Link>Kontakt</Link>
+            <a target="_blank" href="https://www.szybkauprawa.pl/kontakt">
+              Kontakt
+            </a>
           </CategoryItemList>
         </CategoryList>
+        {/* )} */}
       </CategoryContainer>
     </>
   );
