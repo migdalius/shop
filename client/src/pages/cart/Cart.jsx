@@ -8,7 +8,8 @@ import {
   TrashFill,
   Truck,
 } from "react-bootstrap-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeProduct } from "../../redux/cartRedux";
 
 const MainContainer = styled.div`
   background-color: #f4f6f9;
@@ -190,7 +191,7 @@ const CounterProduct = styled.div`
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-
+  const dispatch = useDispatch();
   return (
     <MainContainer>
       <Container>
@@ -232,6 +233,7 @@ const Cart = () => {
                       color="#222"
                       size={20}
                       style={{ cursor: "pointer" }}
+                      onClick={() => dispatch(removeProduct(product))}
                     />
                     <Price>{product.price} zł</Price>
                   </PriceWrapper>
