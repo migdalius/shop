@@ -9,7 +9,6 @@ import Footer from "../../components/footer/Footer";
 import FilterSideBar from "../../components/filtersidebar/FilterSideBar";
 import MainCategory from "../../components/maincategory/MainCategory";
 import Pagination from "../../components/pagination/Pagination";
-import NextStep from "../../components/buttons/NextStep";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

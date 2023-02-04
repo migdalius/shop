@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { Basket3, PersonCircle, Search } from "react-bootstrap-icons";
 import DropDown from "../dropdown/DropDown";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { querySearch } from "../../redux/searchRedux";
 
 const MainContent = styled.div`
   display: flex;
@@ -112,6 +113,18 @@ const Logo = styled.img`
   width: 180px;
 `;
 
+const ButtonSearch = styled.button`
+  padding: 10px 20px;
+  background-color: #0d9488;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  &:hover {
+    background-color: #222;
+  }
+`;
+
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [shopCartOpen, setShopCartOpen] = useState(false);
@@ -121,22 +134,9 @@ const Navigation = () => {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:5000/api/products?q=${query}`
-        );
-        setData(res.data);
-      } catch (err) {}
-    };
-    getProducts();
-  }, []);
-
-  const searchValue = () => {};
-  //redux
-
   const quantity = useSelector((state) => state.cart.quantity);
+  const querySlice = useSelector((state) => state.search.query);
+  const dispatch = useDispatch();
   // const acitve = useSelector((state) => state.user.currentUser);
   // console.log(acitve.accessToken);
   return (
@@ -152,11 +152,15 @@ const Navigation = () => {
             onChange={(e) => setQuery(e.target.value)}
             className="Nav__searchBar"
           />
-          <Search
+          <ButtonSearch
             color="#0d9488"
             className="Nav__searchIcon loop"
-            onClick={searchValue}
-          />
+            onClick={() => {
+              dispatch(querySearch(query));
+            }}
+          >
+            Szukaj
+          </ButtonSearch>
         </SearchSection>
         <UserContainer>
           <div className="ty">
