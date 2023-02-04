@@ -190,6 +190,7 @@ const CounterProduct = styled.div`
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  //darya
 
   return (
     <MainContainer>
