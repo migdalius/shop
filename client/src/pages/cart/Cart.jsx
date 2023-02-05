@@ -191,8 +191,9 @@ const CounterProduct = styled.div`
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
-  //darya
+
   return (
     <MainContainer>
       <Container>
