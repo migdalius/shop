@@ -18,6 +18,7 @@ const cartSlice = createSlice({
       state.products = state.products.filter(
         (prod) => prod._id !== action.payload._id
       );
+      //it has changed
       state.total -= action.payload.price * action.payload.quantity;
     },
   },
