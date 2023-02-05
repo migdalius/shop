@@ -64,6 +64,7 @@ router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   const q = req.query.q;
+  console.log(q);
 
   try {
     let products;
@@ -77,7 +78,11 @@ router.get("/", async (req, res) => {
         },
       });
     } else if (q) {
-      products = await Product.find({ title: q });
+      products = await Product.find({
+        title: {
+          $in: [q],
+        },
+      });
     } else {
       products = await Product.find();
     }
