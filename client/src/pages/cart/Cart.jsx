@@ -223,6 +223,8 @@ const Cart = () => {
                   <ProductImg src={product.img} />
                   <ProductBody>
                     <ProductTitle>{product.title}</ProductTitle>
+                    {console.log(product._id)}
+                    {console.log(cart.products)}
                     <ProductDesc>Waga: 400g</ProductDesc>
                     <CounterWrapper>
                       <Button>+</Button>
