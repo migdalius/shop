@@ -1,4 +1,6 @@
 import styled, { keyframes } from "styled-components";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CategoryDescContainer = styled.div`
   display: flex;
@@ -23,23 +25,30 @@ const CategoryDesc = styled.p`
   color: #717371;
 `;
 
-const MainCategory = () => {
+const MainCategory = (category) => {
+  const categoryName = category.category;
+  const [cat, setCat] = useState([]);
+  useEffect(() => {
+    const categoryApi = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/categories?category=${categoryName}`
+        );
+        setCat(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    categoryApi();
+  }, []);
+  console.log(cat[0].title);
+
   return (
     <CategoryDescContainer>
-      <CategoryImg src="../img/testproduct/bazylia_cytrynowa.jpg" />
+      <CategoryImg src={cat[0].img} />
       <CategoryDescWrapper>
-        <CategoryDescTitle>Tytuł Kategorii</CategoryDescTitle>
-        <CategoryDesc>
-          s simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged. It was popularised in the 1960s with the release of
-          Letraset sheets containing Lorem Ipsum passages, and more recently
-          with desktop publishing software like Aldus PageMaker including
-          versions of Lorem Ipsum.
-        </CategoryDesc>
+        <CategoryDescTitle>{cat[0].title}</CategoryDescTitle>
+        <CategoryDesc>{cat[0].desc}</CategoryDesc>
       </CategoryDescWrapper>
     </CategoryDescContainer>
   );

@@ -362,9 +362,8 @@ const Hero = () => {
               <DescContainer>
                 <TitleContainer>Jakie nasiona cię interesują?</TitleContainer>
                 <DescriptionContainer>
-                  Prowadzimy sprzedaż tylko i wyłącznie w modelu dropshipping,
-                  klientów detalicznych zapraszamy do zakupów u naszych
-                  partnerów.
+                  Wybierz rodzaj rośliny, która cię interesuje i skompletuj swój
+                  własny zestaw lub kup gotowy zestaw do uprawy.
                 </DescriptionContainer>
 
                 <ArrowImage src="../img/right-arrow.png" />

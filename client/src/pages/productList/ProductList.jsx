@@ -87,7 +87,7 @@ const ProductList = () => {
               <FilterSideBar />
             </LeftContainer>
             <CenterContainer>
-              <MainCategory />
+              <MainCategory category={category} />
               <Hr />
               {products.map((item) => {
                 return (

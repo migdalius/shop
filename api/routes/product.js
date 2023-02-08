@@ -64,7 +64,6 @@ router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   const q = req.query.q;
-  console.log(q);
 
   try {
     let products;

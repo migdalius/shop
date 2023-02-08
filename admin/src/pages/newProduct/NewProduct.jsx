@@ -67,6 +67,7 @@ export default function NewProduct() {
       }
     );
   };
+
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Product</h1>
@@ -89,35 +90,34 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Price</label>
+          <label>Description</label>
           <input
-            name="price"
-            type="number"
-            placeholder="Apple Airpods"
+            name="desc"
+            type="text"
+            placeholder="description..."
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Description</label>
+          <label>Price</label>
           <input
-            name="description"
-            type="text"
-            placeholder="Apple Airpods"
+            name="price"
+            type="number"
+            placeholder="100"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
           <label>Categories</label>
-          <input type="text" placeholder="Apple Airpods" onChange={handleCat} />
+          <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
         </div>
         <div className="addProductItem">
           <label>Stock</label>
-          <select name="stock" onChange={handleChange}>
-            <option value="true">Dostępny</option>
-            <option value="false">Niedostępny</option>
+          <select name="inStock" onChange={handleChange}>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
         </div>
-
         <button onClick={handleClick} className="addProductButton">
           Create
         </button>

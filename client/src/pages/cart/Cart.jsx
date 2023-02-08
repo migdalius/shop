@@ -225,7 +225,7 @@ const Cart = () => {
                     <ProductTitle>{product.title}</ProductTitle>
                     {console.log(product._id)}
                     {console.log(cart.products)}
-                    <ProductDesc>Waga: 400g</ProductDesc>
+                    <ProductDesc>Waga: 550g</ProductDesc>
                     <CounterWrapper>
                       <Button>+</Button>
                       <CounterProduct>{product.quantity}</CounterProduct>

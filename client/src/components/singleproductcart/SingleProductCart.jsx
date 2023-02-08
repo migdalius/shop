@@ -113,7 +113,7 @@ const SingleProductCart = (item) => {
       <DescContainer>
         <SingleProductTitle>{singleItem.title}</SingleProductTitle>
         <SingleProductWeight>
-          waga: <strong>10g</strong>
+          waga: <strong>550g</strong>
         </SingleProductWeight>
         <SingleProductPrice>{singleItem.price} zł</SingleProductPrice>
         <DeliveryTime>Kup do 13:00 - wysyłka jeszcze dziś!</DeliveryTime>
