@@ -32,7 +32,8 @@ const MainCategory = (category) => {
     const categoryApi = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/categories?category=${categoryName}`
+          // `http://localhost:5000/api/categories?category=${categoryName}`
+          `http://localhost:5000/api/categories?category=herbs`
         );
         setCat(res.data);
       } catch (err) {
