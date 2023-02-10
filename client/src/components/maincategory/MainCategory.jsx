@@ -27,7 +27,8 @@ const CategoryDesc = styled.p`
 
 const MainCategory = (category) => {
   const categoryName = category.category;
-  const [cat, setCat] = useState([]);
+
+  const [cat, setCat] = useState("");
   useEffect(() => {
     const categoryApi = async () => {
       try {
@@ -42,14 +43,14 @@ const MainCategory = (category) => {
     };
     categoryApi();
   }, []);
-  console.log(cat[0].title);
+  const obj = cat[0];
 
   return (
     <CategoryDescContainer>
-      <CategoryImg src={cat[0].img} />
+      <CategoryImg src="img" />
       <CategoryDescWrapper>
-        <CategoryDescTitle>{cat[0].title}</CategoryDescTitle>
-        <CategoryDesc>{cat[0].desc}</CategoryDesc>
+        <CategoryDescTitle>Test</CategoryDescTitle>
+        <CategoryDesc>des</CategoryDesc>
       </CategoryDescWrapper>
     </CategoryDescContainer>
   );
