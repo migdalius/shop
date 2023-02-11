@@ -28,7 +28,7 @@ const CategoryDesc = styled.p`
 const MainCategory = (category) => {
   const categoryName = category.category;
 
-  const [cat, setCat] = useState("");
+  const [cat, setCat] = useState([]);
   useEffect(() => {
     const categoryApi = async () => {
       try {
@@ -49,7 +49,7 @@ const MainCategory = (category) => {
     <CategoryDescContainer>
       <CategoryImg src="img" />
       <CategoryDescWrapper>
-        <CategoryDescTitle>Test</CategoryDescTitle>
+        <CategoryDescTitle>title</CategoryDescTitle>;
         <CategoryDesc>des</CategoryDesc>
       </CategoryDescWrapper>
     </CategoryDescContainer>

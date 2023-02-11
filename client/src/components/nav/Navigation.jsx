@@ -137,8 +137,9 @@ const Navigation = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const querySlice = useSelector((state) => state.search.query);
   const dispatch = useDispatch();
-  // const acitve = useSelector((state) => state.user.currentUser);
+  const active = useSelector((state) => state.user.currentUser);
   // console.log(acitve.accessToken);
+
   return (
     <>
       <MainContent>
@@ -188,7 +189,7 @@ const Navigation = () => {
 
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
-                <DropDown />
+                <DropDown active={active} />
               </ul>
             </div>
           </div>
