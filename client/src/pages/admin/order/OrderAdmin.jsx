@@ -4,6 +4,8 @@ import Navigation from "../../../components/nav/Navigation";
 
 import AdminSidebar from "../../../components/adminsidebar/AdminSidebar";
 import OrderProduct from "../../../components/orderproduct/OrderProduct";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const BackgroundContainer = styled.div`
   width: 100vw;
@@ -89,6 +91,19 @@ const ProductContainer = styled.div`
 `;
 
 const OrderAdmin = () => {
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:5000/api/orders/find/63c18620cf0c78c4a0cf7ff9"
+        );
+        setOrders(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, []);
+
   return (
     <div className="app">
       <BackgroundContainer>

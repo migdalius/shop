@@ -3,6 +3,8 @@ import Footer from "../../../components/footer/Footer";
 import Navigation from "../../../components/nav/Navigation";
 import { Bag, Cart, DoorClosed, Truck } from "react-bootstrap-icons";
 import AdminSidebar from "../../../components/adminsidebar/AdminSidebar";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const BackgroundContainer = styled.div`
   width: 100vw;
@@ -80,6 +82,9 @@ const Ring = styled.div`
   border-radius: 50%;
 `;
 const HomeAdmin = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  console.log(user.currentUser.username);
   return (
     <div className="app">
       <BackgroundContainer>
@@ -91,7 +96,9 @@ const HomeAdmin = () => {
           <CenterContainer>
             <AdminCenterContainer>
               <AdminTextContainer>
-                <AdminTextTitle>Hej "NAME"!</AdminTextTitle>
+                <AdminTextTitle>
+                  Hej, {user.currentUser.username}
+                </AdminTextTitle>
                 <AdminTextDesc>
                   W ustawieniach swojego konta możesz przejrzeć swoje zamówienia
                   i zwroty, zarządzać adresami dostaw oraz sprawdzić instrukcje
@@ -100,24 +107,30 @@ const HomeAdmin = () => {
                 </AdminTextDesc>
               </AdminTextContainer>
               <AdminCartContener>
-                <AdminCart>
-                  <Ring>
-                    <Bag color="#0d9488" size={35} />
-                  </Ring>
-                  <AdminCartTitle>Zamówienia</AdminCartTitle>
-                </AdminCart>
-                <AdminCart>
-                  <Ring>
-                    <Truck color="#0d9488" size={35} />
-                  </Ring>
-                  <AdminCartTitle>Adres dostawy</AdminCartTitle>
-                </AdminCart>
-                <AdminCart>
-                  <Ring>
-                    <Cart color="#0d9488" size={35} />
-                  </Ring>
-                  <AdminCartTitle>Koszyk Zakupów</AdminCartTitle>
-                </AdminCart>
+                <Link to={"/admin/moje-zamowienia"}>
+                  <AdminCart>
+                    <Ring>
+                      <Bag color="#0d9488" size={35} />
+                    </Ring>
+                    <AdminCartTitle>Zamówienia</AdminCartTitle>
+                  </AdminCart>
+                </Link>
+                <Link to={"/admin/adres-dostawy"}>
+                  <AdminCart>
+                    <Ring>
+                      <Truck color="#0d9488" size={35} />
+                    </Ring>
+                    <AdminCartTitle>Adres dostawy</AdminCartTitle>
+                  </AdminCart>
+                </Link>
+                <Link to={"/koszyk"}>
+                  <AdminCart>
+                    <Ring>
+                      <Cart color="#0d9488" size={35} />
+                    </Ring>
+                    <AdminCartTitle>Koszyk Zakupów</AdminCartTitle>
+                  </AdminCart>
+                </Link>
                 <AdminCart>
                   <Ring>
                     <DoorClosed color="#0d9488" size={35} />
