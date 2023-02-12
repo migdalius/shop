@@ -138,7 +138,6 @@ const Navigation = () => {
   const querySlice = useSelector((state) => state.search.query);
   const dispatch = useDispatch();
   const active = useSelector((state) => state.user.currentUser);
-  // console.log(acitve.accessToken);
 
   return (
     <>
