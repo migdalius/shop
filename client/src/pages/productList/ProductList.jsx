@@ -54,7 +54,7 @@ const Hr = styled.hr`
   border: 0;
   border-top: 1px solid #ccc;
   padding: 0;
-  margin-bottom: 30px;
+  margin-bottom: 31px;
 `;
 
 const ProductList = () => {
