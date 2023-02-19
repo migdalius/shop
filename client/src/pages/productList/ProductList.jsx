@@ -62,6 +62,7 @@ const ProductList = () => {
   const category = location.state;
 
   const [products, setProducts] = useState([]);
+  //Adimn
 
   useEffect(() => {
     const getProducts = async () => {
